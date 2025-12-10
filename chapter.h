@@ -1,22 +1,22 @@
-#pragma once
+#ifndef CHAPTER
+#define CHAPTER
 #include <string>
+#include "article.h"
 #include "author.h"
- 
-class Chapter {
-private:
-    std::string title;
+using namespace std;
+class Chapter{
+    private:
+    string title;
     Author author;
     int chapterNumber;
- 
-public:
+    public:
     Chapter();
-    Chapter(std::string chapterTitle, Author chapterAuthor, int number);
+    Chapter(string chapterTitle, Author chapterAuthor, int number);
     Chapter(const Chapter &other);
- 
-    void displayInfo() const;
- 
-    std::string getTitle() const;
-    Author getAuthor() const;
-    int getChapterNumber() const;
+    Chapter(Article &article);
+    void displayInfo();
+    string getTitle();
+    Author getAuthor();
+    int getChapterNumber();
 };
- 
+#endif

@@ -1,27 +1,23 @@
- #pragma once
+#ifndef ARTICLE
+#define ARTICLE
 #include <string>
 #include "author.h"
- 
-class Article {
-private:
-    std::string title;
-    Author author;
-    int publicationYear;
-    std::string journal;
- 
+using namespace std;
+class Article{
+    private:
+string title;
+Author author;
+int publicationYear;
+string journal;
 public:
-    Article();
-    Article(std::string articleTitle, Author articleAuthor, int year, std::string journalName);
-    Article(const Article &other);
- 
-    void displayInfo() const;
- 
-    std::string getTitle() const;
-    Author getAuthor() const;
-    int getPublicationYear() const;
-    std::string getJournal() const;
-};
- 
+Article();
+Article(string articleTitle, Author articleAuthor, int year, string journalName);
+Article(Article &other);
+void displayInfo();
+string getTitle();
+Author getAuthor();
+int getPublicationYear();
+string getJournal();
  
  
  

@@ -1,28 +1,29 @@
+#include "author.h"
+#include "chapter.h"
 #include "book.h"
 #include <iostream>
- 
-Book::Book() : title(""), author(Author()), publicationYear(0), chapters() {}
- 
-Book::Book(std::string bookTitle, Author bookAuthor, int year, std::vector<Chapter> bookChapters)
-    : title(bookTitle), author(bookAuthor), publicationYear(year), chapters(bookChapters) {}
- 
-void Book::addChapter(const Chapter &newChapter) {
+using namespace std;
+Book::Book(): title(""), author(Author("","")), publicationYear(0){}
+Book::Book(string bookTitle, Author bookAuthor, int year, const vector<Chapter> &bookChapter):
+title(bookTitle), author(bookAuthor), publicationYear(year), chapters(bookChapter){}
+void Book::addChapter(Chapter newChapter){
     chapters.push_back(newChapter);
 }
- 
-void Book::displayInfo() const {
-    std::cout << "Book: " << title << " (" << publicationYear << ")\n"
-              << "Author: " << author.toString() << "\n";
- 
-    std::cout << "Chapters:\n";
-    for (const auto &c : chapters) {
-        std::cout << "  - ";
-        c.displayInfo();
-        std::cout << "\n";
+    vector<Chapter> &Book::getChapters(){
+return chapters;
     }
-}
- 
-std::string Book::getTitle() const { return title; }
-Author Book::getAuthor() const { return author; }
-int Book::getPublicationYear() const { return publicationYear; }
-std::vector<Chapter> Book::getChapters() const { return chapters; }
+    string Book::getTitle(){
+        return title;
+    }
+    Author Book::getAuthor(){
+        return author;
+    }
+    int Book::getPublicationYear(){
+        return publicationYear;
+    }
+    void Book::displayInfo(){
+        cout<<"Title: "<<title<<"\nAuthor: "<<author.toString()<<"\nYear: "<<publicationYear<<"\n";
+        for(size_t i=0;i<chapters.size();++i){
+            cout<<"Chapter "<<chapters[i].getChapterNumber()<<": "<<chapters[i].getTitle()<<"\n";
+        }
+    }

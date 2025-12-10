@@ -1,19 +1,18 @@
-#pragma once
+#ifndef AUTHOR
+#define AUTHOR
 #include <string>
+using namespace std;
+class Author{
+    private:
+    string name;
+    string surname;
+    public:
+    Author(string n, string s);
+    void print();
+    string toString();
+    string getName();
+    string getSurname();
  
-class Author {
-private:
-    std::string name;
-    std::string surname;
- 
-public:
-    Author(std::string firstName = "", std::string lastName = "");
- 
-    void print() const;
-    std::string toString() const;
- 
-    std::string getName() const;
-    std::string getSurname() const;
 };
- 
+#endif
  

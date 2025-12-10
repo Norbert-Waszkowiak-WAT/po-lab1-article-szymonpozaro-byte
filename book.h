@@ -1,25 +1,27 @@
-#pragma once
-#include <string>
+#ifndef BOOK
+#define BOOK
 #include <vector>
+#include <iostream>
+#include "article.h"
 #include "author.h"
 #include "chapter.h"
- 
-class Book {
-private:
-    std::string title;
+using namespace std;
+class Book{
+    private:
+    string title;
     Author author;
     int publicationYear;
-    std::vector<Chapter> chapters;
- 
-public:
+    vector<Chapter> chapters;
+    public:
     Book();
-    Book(std::string bookTitle, Author bookAuthor, int year, std::vector<Chapter> bookChapters);
+    Book(string bookTitle, Author bookAuthor, int year, const vector<Chapter> &bookChapter);
+    void addChapter(Chapter newChapter);
+    void displayInfo();
+    string getTitle();
+    Author getAuthor();
+    int getPublicationYear();
+    vector<Chapter> &getChapters();
  
-    void addChapter(const Chapter &newChapter);
-    void displayInfo() const;
  
-    std::string getTitle() const;
-    Author getAuthor() const;
-    int getPublicationYear() const;
-    std::vector<Chapter> getChapters() const;
 };
+#endif
